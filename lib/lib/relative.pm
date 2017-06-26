@@ -36,11 +36,11 @@ lib::relative - Add paths relative to the current file to @INC
 
 =head1 DESCRIPTION
 
-Adding a path to L<@INC|perlvar/"@INC"> to load modules from a local directory may
-seem simple, but has a few common pitfalls to be aware of. Directly adding a
-relative path to C<@INC> means that any later code that changes the current
-working directory will change where you load modules from. This applies to the
-C<.> path that used to be in C<@INC> by default until perl 5.26.0, or a
+Adding a path to L<@INC|perlvar/"@INC"> to load modules from a local directory
+may seem simple, but has a few common pitfalls to be aware of. Directly adding
+a relative path to C<@INC> means that any later code that changes the current
+working directory will change where modules are loaded from. This applies to
+the C<.> path that used to be in C<@INC> by default until perl 5.26.0, or a
 relative path added in code like C<use lib 'path/to/lib'>, and may be a
 vulnerability if such a location is not supposed to be writable. Additionally,
 the commonly used L<FindBin> module relies on interpreter state and the path to
@@ -50,11 +50,10 @@ proposes a more straightforward method: take a path relative to the
 L<current file|perldata/"Special Literals">, absolutize it, and add it to
 C<@INC>.
 
-If you are able to load this module first, you can simply use the module as you
-would use L<lib>, passing the relative path, which will be absolutized
-relative to the current file then passed on to L<lib>. Multiple arguments will
-be separately absolutized and passed on to L<lib>, and absolute paths will be
-passed on unchanged.
+If this module is already available to be loaded, it can be used as with
+L<lib>.pm, passing relative paths, which will be absolutized relative to the
+current file then passed on to L<lib>. Multiple arguments will be separately
+absolutized, and absolute paths will be passed on unchanged.
 
 For cases where this module cannot be loaded beforehand, the last section of
 the L</"SYNOPSIS"> can be copy-pasted into a file to perform the same task.
