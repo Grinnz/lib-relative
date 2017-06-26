@@ -50,7 +50,8 @@ directory, be sure to use C<lib::relative> or the equivalent code from
 L</"SYNOPSIS"> as early as possible in the file. If a C<chdir> occurs before
 this code, it will add the incorrect directory path.
 
-This probably does not work on VMS.
+All file paths are expected to be in a format appropriate to the current
+operating system, e.g. C<..\\foo\\bar> on Windows.
 
 =head1 BUGS
 
