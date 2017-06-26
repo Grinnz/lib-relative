@@ -17,7 +17,6 @@ my %WriteMakefileArgs = (
   "MIN_PERL_VERSION" => "5.006001",
   "NAME" => "lib::relative",
   "PREREQ_PM" => {
-    "Cwd" => 0,
     "File::Basename" => 0,
     "File::Spec" => 0,
     "lib" => 0
@@ -35,7 +34,6 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
-  "Cwd" => 0,
   "ExtUtils::MakeMaker" => 0,
   "File::Basename" => 0,
   "File::Spec" => 0,

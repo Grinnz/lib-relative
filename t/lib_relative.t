@@ -1,7 +1,6 @@
 use strict;
 use warnings;
 use Test::More;
-use Cwd ();
 use File::Basename ();
 use File::Spec ();
 use lib::relative ();
@@ -23,7 +22,7 @@ use lib::relative ();
 # Absolute path passed through
 {
   local @INC = @INC;
-  my $path = Cwd::abs_path(File::Basename::dirname(__FILE__)) . '/testlib';
+  my $path = File::Spec->catdir(File::Spec->rel2abs(File::Basename::dirname(__FILE__)), 'testlib');
   lib::relative->import($path);
   
   ok((grep { $_ eq $path } @INC), 'absolute path to testlib in @INC');
