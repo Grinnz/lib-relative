@@ -4,9 +4,9 @@ Thank you for considering contributing to this distribution.  This file
 contains instructions that will help you work with the source code.
 
 The distribution is managed with [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla).
-This means than many of the usual files you might expect are not in the
+This means that many of the usual files you might expect are not in the
 repository, but are generated at release time.  Some generated files are kept
-in the repository as a convenience (e.g. Makefile.PL or META.json).
+in the repository as a convenience (e.g. Build.PL/Makefile.PL and META.json).
 
 Generally, **you do not need Dist::Zilla to contribute patches**.  You may need
 Dist::Zilla to create a tarball.  See below for guidance.
@@ -65,12 +65,18 @@ When you get back, Dist::Zilla should be ready for you.
 
 Then you need to install any plugins specific to this distribution:
 
-    $ dzil authordeps --versions | cpanm
+    $ dzil authordeps --missing | cpanm
 
-Once installed, here are some dzil commands you might try:
+You can use Dist::Zilla to install the distribution's dependencies if you
+haven't already installed them with cpanm:
+
+    $ dzil listdeps --missing --develop | cpanm
+
+Once everything is installed, here are some dzil commands you might try:
 
     $ dzil build
     $ dzil test
+    $ dzil regenerate
 
 You can learn more about Dist::Zilla at http://dzil.org/
 
@@ -80,17 +86,16 @@ This distribution maintains the generated `META.json` and either `Makefile.PL`
 or `Build.PL` in the repository. This allows two things:
 [Travis CI](https://travis-ci.org/) can build and test the distribution without
 requiring Dist::Zilla, and the distribution can be installed directly from
-Github using `cpanm` for testing (again, not requiring Dist::Zilla).
+Github or a local git repository using `cpanm` for testing (again, not
+requiring Dist::Zilla).
 
-    $ cpanm git://github.com/Grinnz/Distribution-Name.git
+    $ cpanm git://github.com/Author/Distribution-Name.git
+    $ cd Distribution-Name; cpanm .
 
-Contributions will usually be expected in the form of a Github pull request.
-See [Using pull requests](https://help.github.com/articles/using-pull-requests/)
+Contributions are preferred in the form of a Github pull request. See
+[Using pull requests](https://help.github.com/articles/using-pull-requests/)
 for further information. You can use the Github issue tracker to report issues
 without an accompanying patch.
-
-For more details on using my Dist::Zilla bundle, see the documentation at
-[Dist::Zilla::PluginBundle::Author::DBOOK](https://metacpan.org/pod/Dist::Zilla::PluginBundle::Author::DBOOK).
 
 # CREDITS
 

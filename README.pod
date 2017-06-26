@@ -1,20 +1,4 @@
-package lib::relative;
-
-use strict;
-use warnings;
-use File::Basename ();
-use File::Spec;
-use lib ();
-
-our $VERSION = '0.001';
-
-sub import {
-  my ($class, @paths) = @_;
-  my $dir = File::Spec->rel2abs(File::Basename::dirname((caller)[1]));
-  lib->import(map { File::Spec->file_name_is_absolute($_) ? $_ : "$dir/$_" } @paths);
-}
-
-1;
+=pod
 
 =head1 NAME
 
@@ -80,3 +64,5 @@ This is free software, licensed under:
 =head1 SEE ALSO
 
 L<lib>, L<FindBin>, L<Dir::Self>
+
+=cut
