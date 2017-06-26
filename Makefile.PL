@@ -7,7 +7,7 @@ use 5.006001;
 use ExtUtils::MakeMaker;
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "Add relative paths to \@INC correctly",
+  "ABSTRACT" => "Add paths relative to the current file to \@INC",
   "AUTHOR" => "Dan Book <dbook\@cpan.org>",
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0

@@ -2,13 +2,18 @@
 
 =head1 NAME
 
-lib::relative - Add relative paths to @INC correctly
+lib::relative - Add paths relative to the current file to @INC
 
 =head1 SYNOPSIS
 
+  # Path is relative to this file, not current working directory
   use lib::relative 'path/to/lib';
+  use lib::relative '../../lib';
   
-  # Equivalent code using core modules:
+  # Add two lib paths, as in lib.pm
+  use lib::relative 'foo', 'bar';
+  
+  # Equivalent code using core modules
   use File::Basename ();
   use File::Spec ();
   use lib File::Spec->catdir(File::Spec->rel2abs(File::Basename::dirname(__FILE__)), 'path/to/lib');
@@ -35,8 +40,8 @@ relative to the current file then passed on to L<lib>. Multiple arguments will
 be separately absolutized and passed on to L<lib>, and absolute paths will be
 passed on unchanged.
 
-For cases where this module cannot be loaded beforehand, the second part of the
-L</"SYNOPSIS"> can be copy-pasted into a file to perform the same task.
+For cases where this module cannot be loaded beforehand, the last section of
+the L</"SYNOPSIS"> can be copy-pasted into a file to perform the same task.
 
 =head1 CAVEATS
 

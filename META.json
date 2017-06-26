@@ -1,5 +1,5 @@
 {
-   "abstract" : "Add relative paths to @INC correctly",
+   "abstract" : "Add paths relative to the current file to @INC",
    "author" : [
       "Dan Book <dbook@cpan.org>"
    ],
