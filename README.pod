@@ -13,6 +13,9 @@ lib::relative - Add paths relative to the current file to @INC
   # Add two lib paths, as in lib.pm
   use lib::relative 'foo', 'bar';
   
+  # Absolute paths are passed through unchanged
+  use lib::relative 'foo/baz', '/path/to/lib';
+  
   # Equivalent code using core modules
   use File::Basename ();
   use File::Spec ();
