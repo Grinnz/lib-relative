@@ -29,6 +29,11 @@
             "ExtUtils::MakeMaker" : "0"
          }
       },
+      "develop" : {
+         "requires" : {
+            "Test::Pod" : "1.41"
+         }
+      },
       "runtime" : {
          "requires" : {
             "File::Basename" : "0",
@@ -329,6 +334,11 @@
             },
             "name" : "@Author::DBOOK/Git::Push",
             "version" : "2.042"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::PodSyntaxTests",
+            "name" : "@Author::DBOOK/PodSyntaxTests",
+            "version" : "6.009"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::ReportPrereqs",
