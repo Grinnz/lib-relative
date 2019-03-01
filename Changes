@@ -1,4 +1,6 @@
 {{$NEXT}}
+
+0.999     2019-03-01 13:49:33 EST (TRIAL RELEASE)
   - Now uses Cwd::abs_path to resolve __FILE__, so in the rare case where
     __FILE__ is a symlink, lib paths will be loaded relative to the target file
     and not the symlink.
