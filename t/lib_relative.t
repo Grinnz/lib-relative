@@ -71,7 +71,7 @@ SKIP: {
   skip 'symlinks not supported in this build', 4 unless has_symlinks();
   local @INC = @INC;
   my $dir = File::Temp->newdir;
-  skip 4, 'tempdir in @INC' if grep { m!^\Q$dir\E! } @INC;
+  skip 'tempdir in @INC', 4 if grep { m!^\Q$dir\E! } @INC;
   my $path = File::Spec->catfile(File::Basename::dirname(Cwd::abs_path __FILE__), 'testlib', 'load_relative.pl');
   my $link = File::Spec->catfile($dir, 'load_relative.pl');
   my $rc;
