@@ -7,7 +7,7 @@ use File::Basename ();
 use File::Spec ();
 use lib ();
 
-our $VERSION = '1.002';
+our $VERSION = '1.003';
 
 sub import {
   my ($class, @paths) = @_;
